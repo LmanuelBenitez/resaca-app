@@ -1,0 +1,80 @@
+# ============================================
+# FRONTEND (React Native / Expo) - en /frontend
+# ============================================
+
+# dependencies
+frontend/node_modules/
+
+# Expo
+frontend/.expo/
+frontend/dist/
+frontend/web-build/
+frontend/expo-env.d.ts
+
+# Native
+frontend/.kotlin/
+frontend/*.orig.*
+frontend/*.jks
+frontend/*.p8
+frontend/*.p12
+frontend/*.key
+frontend/*.mobileprovision
+
+# Metro
+frontend/.metro-health-check*
+
+# debug
+frontend/npm-debug.*
+frontend/yarn-debug.*
+frontend/yarn-error.*
+
+# macOS
+frontend/.DS_Store
+frontend/*.pem
+
+# local env files
+frontend/.env*.local
+
+# typescript
+frontend/*.tsbuildinfo
+
+# generated native folders
+frontend/ios
+frontend/android
+
+# ============================================
+# BACKEND (Python / FastAPI) - en /backend
+# ============================================
+
+# Virtual environment
+backend/venv/
+backend/.venv/
+
+# Python cache
+backend/__pycache__/
+backend/*.pyc
+backend/.pytest_cache/
+backend/.ruff_cache/
+
+# Database
+backend/*.db
+backend/*.sqlite
+
+# Environment variables
+backend/.env
+
+# Coverage reports
+backend/coverage/
+backend/htmlcov/
+backend/.coverage
+
+# ============================================
+# IDE y OS
+# ============================================
+
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+Desktop.ini
