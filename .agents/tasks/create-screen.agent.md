@@ -1,0 +1,1 @@
+Crear nueva pantalla en React Native: 1) archivo en frontend/src/screens/, 2) usar SafeAreaView y ScrollView, 3) estilos con NativeWind className, 4) navegación con useNavigation, 5) tipos en navigation/types.ts, 6) registrar en AppNavigator.tsx. Componentes en src/components/common/. Hooks en src/hooks/. Servicios en src/services/api/.

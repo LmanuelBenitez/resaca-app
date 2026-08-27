@@ -1,0 +1,1 @@
+Frontend: React Native 0.81.5 Expo 54 TypeScript 5.9 NativeWind 4.1 React Navigation 6 Axios 1.7. Backend: FastAPI 0.104 Python 3.10 SQLAlchemy 2.0 Pydantic 2.5 Turso libsql-client-py uvicorn. Herramientas: npm pip Git GitHub.

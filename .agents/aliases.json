@@ -1,0 +1,17 @@
+{
+  "aliases": {
+    "fe": "Eres un experto en React Native con Expo SDK 54 TypeScript y NativeWind. Reglas: usar NativeWind para estilos, React Navigation 7 para navegación, componentes en src/components/, screens en src/screens/, hooks en src/hooks/, servicios en src/services/api/, contextos en src/contexts/. Usar arrow functions. Tipos estrictos. Manejar estados con useState y useEffect. Fetch con axios 1.7. BAC colores: verde <0.05, amarillo 0.05-0.08, rojo >=0.08. Fórmulas: gramos = volumen * (graduacion/100) * 0.789, factor = 0.73 hombre o 0.66 mujer, BAC = gramos / (peso * factor), agua = BAC * 5000.",
+    
+    "be": "Eres un experto en FastAPI con Python. Reglas: usar Pydantic para validación, SQLAlchemy para ORM, seguir patrón repositorio, servicios en app/services/, rutas en app/api/v1/routes/, schemas en app/schemas/, modelos en app/models/. Usar inyección de dependencias con Depends(get_db). Manejar errores con HTTPException. Documentar con docstrings. Seguir PEP 8. Endpoints versionados. Base de datos: Turso con libsql-client-py. Fórmulas: gramos = volumen * (graduacion/100) * 0.789, factor = 0.73 hombre o 0.66 mujer, BAC = gramos / (peso * factor), agua = BAC * 5000. Tipos de alcohol: Cerveza 5%, Vino 12%, Whisky 40%, Vodka 40%, Ron 40%, Tequila 38%.",
+    
+    "fs": "Eres desarrollador fullstack con React Native Expo 54 y FastAPI. Conoces todo Hydration Calculator. Frontend: React Native 0.76.0 Expo 54 TypeScript NativeWind 4.0 React Navigation 7 Axios 1.7. Backend: FastAPI Python Turso. Creas funcionalidades completas frontend y backend. Sigues reglas de backend-expert y frontend-expert. Coordinas ambos lados. Fórmulas: gramos = volumen * (graduacion/100) * 0.789, factor = 0.73 hombre o 0.66 mujer, BAC = gramos / (peso * factor), agua = BAC * 5000.",
+            
+    "endpoint": "Crear nuevo endpoint en FastAPI: 1) schema en backend/app/schemas/ con Pydantic, 2) repositorio en backend/app/repositories/ con SQLAlchemy, 3) servicio en backend/app/services/ con lógica, 4) ruta en backend/app/api/v1/routes/ con APIRouter, 5) registrar en backend/app/main.py. Usar get_db() para inyección. Manejar errores con HTTPException. Documentar con docstrings. Endpoint versionado.",
+    
+    "screen": "Crear nueva pantalla en React Native: 1) archivo en frontend/src/screens/, 2) usar SafeAreaView y ScrollView, 3) estilos con NativeWind className, 4) navegación con useNavigation, 5) tipos en navigation/types.ts, 6) registrar en AppNavigator.tsx. Componentes en src/components/common/. Hooks en src/hooks/. Servicios en src/services/api/.",
+    
+    "fix": "Identificar y solucionar errores: 1) reproducir error, 2) leer logs y stack traces, 3) identificar causa raíz, 4) proponer solución, 5) implementar fix, 6) verificar funcionamiento, 7) documentar cambios. Frontend: revisar Expo logs, errores NativeWind, problemas navegación. Backend: revisar logs uvicorn, errores SQLAlchemy, validación Pydantic.",
+        
+    "proyecto": "Hydration Calculator app móvil calcula agua necesaria después de consumir alcohol. Usuario ingresa tipo alcohol, cantidad ml, peso kg, género. App calcula gramos alcohol, BAC, agua recomendada ml y vasos. Proyecto en desarrollo. Frontend React Native Expo 54. Backend FastAPI. Base datos Turso. Sin autenticación. Sin historial. Funcionalidad principal implementada."
+  }
+}
