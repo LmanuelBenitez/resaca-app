@@ -1,0 +1,1 @@
+Hydration Calculator app móvil calcula agua necesaria después de consumir alcohol. Usuario ingresa tipo alcohol, cantidad ml, peso kg, género. App calcula gramos alcohol, BAC, agua recomendada ml y vasos. Proyecto en desarrollo. Frontend React Native. Backend FastAPI. Base datos Turso. Sin autenticación. Sin historial. Funcionalidad principal implementada.
