@@ -78,3 +78,4 @@ backend/.coverage
 *.swo
 Thumbs.db
 Desktop.ini
+.forge-permissions.json
