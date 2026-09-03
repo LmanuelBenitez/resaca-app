@@ -8,20 +8,29 @@ import { AlcoholType, User } from '../types';
 
 export default function HomeScreen() {
   const router = useRouter();
-  const { calculate } = useAlcoholCalculation();
+  const { calculate, loading, error } = useAlcoholCalculation();
 
-  const handleCalculate = (alcohol: AlcoholType, volumeMl: number, user: User) => {
-    const result = calculate(alcohol, volumeMl, user);
-    router.push({
-      pathname: '/results' as any,
-      params: { data: JSON.stringify(result) }
-    });
+  const handleCalculate = async (alcohol: AlcoholType, volumeMl: number, user: User) => {
+    try {
+      const result = await calculate(alcohol.id, volumeMl, user.weight, user.gender);
+      
+      router.push({
+        pathname: '/results',
+        params: { data: JSON.stringify(result) },
+      });
+    } catch (err) {
+      // El error ya está manejado en el hook
+    }
   };
 
   return (
     <SafeAreaView className="flex-1 bg-gray-50">
       <View className="flex-1 px-4 pt-4">
-        <AlcoholForm onCalculate={handleCalculate} />
+        <AlcoholForm 
+          onCalculate={handleCalculate}
+          loading={loading}
+          error={error}
+        />
       </View>
     </SafeAreaView>
   );
