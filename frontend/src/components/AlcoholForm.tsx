@@ -160,7 +160,7 @@ const AlcoholForm: React.FC<AlcoholFormProps> = ({ onCalculate }) => {
         </View>
 
         <Button
-          title="Calcular..."
+          title="Calcular"
           onPress={handleCalculate}
           variant="primary"
           className="mt-2 bg-blue-700"
