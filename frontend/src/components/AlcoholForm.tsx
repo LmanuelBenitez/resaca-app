@@ -141,7 +141,7 @@ const AlcoholForm: React.FC<AlcoholFormProps> = ({ onCalculate }) => {
 
         <View className="mb-4">
           <Text className="text-gray-700 font-medium mb-2 text-sm">
-            Género
+            Sexo
           </Text>
           <View className="flex-row gap-2">
             <Button
@@ -160,7 +160,7 @@ const AlcoholForm: React.FC<AlcoholFormProps> = ({ onCalculate }) => {
         </View>
 
         <Button
-          title="Calcular..."
+          title="Calcular"
           onPress={handleCalculate}
           variant="primary"
           className="mt-2 bg-blue-700"
