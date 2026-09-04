@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Modal, FlatList } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Modal, FlatList, ActivityIndicator } from 'react-native';
 import Input from './ui/Input';
 import Button from './ui/Button';
 import Card from './ui/Card';
@@ -8,9 +8,11 @@ import { AlcoholType, User } from '../types';
 
 interface AlcoholFormProps {
   onCalculate: (alcohol: AlcoholType, volumeMl: number, user: User) => void;
+  loading?: boolean;
+  error?: string | null;
 }
 
-const AlcoholForm: React.FC<AlcoholFormProps> = ({ onCalculate }) => {
+const AlcoholForm: React.FC<AlcoholFormProps> = ({ onCalculate, loading = false, error = null }) => {
   const [selectedAlcohol, setSelectedAlcohol] = useState<AlcoholType>(alcoholTypes[0]);
   const [volume, setVolume] = useState<string>('');
   const [weight, setWeight] = useState<string>('');
@@ -71,7 +73,7 @@ const AlcoholForm: React.FC<AlcoholFormProps> = ({ onCalculate }) => {
               </Text>
               <FlatList
                 data={alcoholTypes}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => String(item.id)}
                 renderItem={({ item }) => (
                   <TouchableOpacity
                     className={`px-4 py-3 border-b border-gray-100 ${
@@ -159,11 +161,16 @@ const AlcoholForm: React.FC<AlcoholFormProps> = ({ onCalculate }) => {
           </View>
         </View>
 
+        {error && (
+          <Text className="text-red-500 text-center mb-4">{error}</Text>
+        )}
+
         <Button
           title="Calcular"
           onPress={handleCalculate}
           variant="primary"
           className="mt-2 bg-blue-700"
+          disabled={loading}
         />
       </Card>
     </ScrollView>

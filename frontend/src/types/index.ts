@@ -1,5 +1,5 @@
 export interface AlcoholType {
-  id: string;
+  id: number;
   name: string;
   percentage: number;
 }
