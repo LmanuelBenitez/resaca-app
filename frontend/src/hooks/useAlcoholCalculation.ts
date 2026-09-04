@@ -8,6 +8,7 @@ export const useAlcoholCalculation = () => {
 
   const calculate = async (
     alcoholType: string,
+    alcoholId: number,
     volumeMl: number,
     weightKg: number,
     gender: 'male' | 'female'
@@ -18,6 +19,7 @@ export const useAlcoholCalculation = () => {
     try {
       const response = await calculationService.calculate({
         alcohol_type: alcoholType,
+        alcohol_id: alcoholId,
         volume_ml: volumeMl,
         weight_kg: weightKg,
         gender: gender,

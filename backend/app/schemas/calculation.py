@@ -1,26 +1,20 @@
 from pydantic import BaseModel, Field
-from typing import Optional, List
+from typing import Literal, List, Optional
 
 
 class CalculationRequest(BaseModel):
     """Schema for hydration calculation request."""
-    weight: float = Field(..., ge=20, le=300, description="Weight in kilograms")
-    gender: str = Field(..., pattern="^(male|female)$", description="Gender: male or female")
-    alcohol_id: int = Field(..., description="ID of the alcohol type")
-    volume_ml: float = Field(..., ge=50, le=2000, description="Volume in milliliters")
-    drink_count: float = Field(..., ge=0.5, le=50, description="Number of drinks consumed")
-    time_elapsed: float = Field(0, ge=0, le=24, description="Time elapsed in hours")
-    hydration_level: str = Field("normal", pattern="^(normal|dehydrated|wellHydrated)$", description="Hydration level")
+    alcohol_type: str = Field(..., description="Tipo de alcohol: cerveza, vino, whisky, etc.")
+    alcohol_id: int = Field(..., gt=0, description="ID del tipo de alcohol desde la base de datos")
+    volume_ml: float = Field(..., ge=50, le=5000, description="Volumen en mililitros")
+    weight_kg: float = Field(..., ge=20, le=300, description="Peso en kilogramos")
+    gender: Literal["male", "female"] = Field(..., description="Género: male o female")
 
 
 class CalculationResponse(BaseModel):
     """Schema for hydration calculation response."""
-    water_needed_ml: float
-    glasses_needed: int
-    time_to_hydrate_minutes: int
-    bac: float
-    status_text: str
-    status_class: str
-    tips: List[str]
-    total_alcohol_ml: float
-    total_alcohol_grams: float
+    grams: float = Field(..., description="Gramos de alcohol consumido")
+    bac: float = Field(..., description="Nivel de alcohol en sangre")
+    waterMl: float = Field(..., description="Agua recomendada en mililitros")
+    glasses: float = Field(..., description="Vasos de agua (250ml)")
+    hydrationLevel: Literal["Bajo", "Moderado", "Alto"] = Field(..., description="Nivel de hidratación")

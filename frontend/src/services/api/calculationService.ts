@@ -2,6 +2,7 @@ import { apiClient } from './client';
 
 export interface CalculationRequest {
   alcohol_type: string;
+  alcohol_id: number;
   volume_ml: number;
   weight_kg: number;
   gender: 'male' | 'female';

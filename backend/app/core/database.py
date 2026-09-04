@@ -1,36 +1,29 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, Session
-from typing import Generator
-
+from sqlalchemy.orm import sessionmaker
 from app.core.config import settings
 
-# Create SQLAlchemy engine
-engine = create_engine(
-    settings.DATABASE_URL,
-    connect_args={"check_same_thread": False} if "sqlite" in settings.DATABASE_URL else {},
-    echo=False
-)
-
-# Create session factory
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-# Base class for models
 Base = declarative_base()
 
+# Configurar engine para SQLite
+engine = create_engine(
+    settings.DATABASE_URL,
+    connect_args={"check_same_thread": False}  # Necesario para SQLite
+)
 
-def get_db() -> Generator[Session, None, None]:
-    """
-    Dependency that provides a database session.
-    Yields a session and ensures it's closed after use.
-    """
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+def get_db():
+    """Obtener una sesión de base de datos."""
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
 
-
-def init_db() -> None:
-    """Initialize database tables."""
+def init_db():
+    """Crear todas las tablas si no existen."""
+    from app.models.alcohol import Alcohol  # noqa
+    from app.models.consumption import Consumption  # noqa
     Base.metadata.create_all(bind=engine)
+    print("✅ Tablas creadas en:", engine.url)

@@ -73,7 +73,7 @@ const AlcoholForm: React.FC<AlcoholFormProps> = ({ onCalculate, loading = false,
               </Text>
               <FlatList
                 data={alcoholTypes}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => String(item.id)}
                 renderItem={({ item }) => (
                   <TouchableOpacity
                     className={`px-4 py-3 border-b border-gray-100 ${

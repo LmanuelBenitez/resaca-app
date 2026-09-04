@@ -6,10 +6,10 @@ from app.services.calculation_service import CalculationService
 from app.services.alcohol_service import AlcoholService
 from app.schemas.calculation import CalculationRequest, CalculationResponse
 
-router = APIRouter(prefix="/calculate", tags=["Calculation"])
+router = APIRouter(tags=["Calculation"])
 
 
-@router.post("/", response_model=CalculationResponse)
+@router.post("/calculate", response_model=CalculationResponse)
 async def calculate_hydration(
     request: CalculationRequest,
     db: Session = Depends(get_db)
@@ -60,25 +60,18 @@ async def calculate_hydration(
     
     try:
         result = calculation_service.calculate(
-            weight=request.weight,
+            weight_kg=request.weight_kg,
             gender=request.gender,
-            alcohol=alcohol,
+            alcohol_type=request.alcohol_type,
             volume_ml=request.volume_ml,
-            drink_count=request.drink_count,
-            time_elapsed=request.time_elapsed,
-            hydration_level=request.hydration_level
         )
         
         return CalculationResponse(
-            water_needed_ml=result["water_needed_ml"],
-            glasses_needed=result["glasses_needed"],
-            time_to_hydrate_minutes=result["time_to_hydrate_minutes"],
+            waterMl=result["water_ml"],
+            glasses=result["glasses"],
             bac=result["bac"],
-            status_text=result["status_text"],
-            status_class=result["status_class"],
-            tips=result["tips"],
-            total_alcohol_ml=result["total_alcohol_ml"],
-            total_alcohol_grams=result["total_alcohol_grams"]
+            grams=result["grams"],
+            hydrationLevel=result["hydration_level"],
         )
     except ValueError as e:
         raise HTTPException(

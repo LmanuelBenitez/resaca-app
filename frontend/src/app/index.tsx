@@ -12,7 +12,7 @@ export default function HomeScreen() {
 
   const handleCalculate = async (alcohol: AlcoholType, volumeMl: number, user: User) => {
     try {
-      const result = await calculate(alcohol.id, volumeMl, user.weight, user.gender);
+      const result = await calculate(alcohol.name, alcohol.id, volumeMl, user.weight, user.gender);
       
       router.push({
         pathname: '/results',

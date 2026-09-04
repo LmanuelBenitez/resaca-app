@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings
-from typing import Optional
+from typing import Optional, List
 
 
 class Settings(BaseSettings):
@@ -7,12 +7,13 @@ class Settings(BaseSettings):
     
     # Database
     DATABASE_URL: str = "sqlite:///./hydration.db"
+    TURSO_AUTH_TOKEN: Optional[str] = None
     
     # API
     API_V1_PREFIX: str = "/api/v1"
     
     # CORS
-    CORS_ORIGINS: list[str] = ["*"]
+    CORS_ORIGINS: List[str] = ["*"]
     
     # Hydration constants
     ALCOHOL_DENSITY: float = 0.789  # g/mL
